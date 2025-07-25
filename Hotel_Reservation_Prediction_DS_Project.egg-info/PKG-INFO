@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: Hotel-Reservation-Prediction_DS-Project
+Version: 0.1
+Summary: An End-to-End Data Science project to predict hotel reservation cancellations using machine learning
+Author: Rhitwik Prakash
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: google-cloud-storage
+Requires-Dist: scikit-learn
+Requires-Dist: pyyaml
+Requires-Dist: imbalanced-learn
+Requires-Dist: lightgbm
+Requires-Dist: mlflow
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: summary
