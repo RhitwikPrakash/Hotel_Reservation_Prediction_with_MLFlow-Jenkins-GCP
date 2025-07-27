@@ -33,4 +33,4 @@ def index():
     return render_template("index.html" , prediction=None)
 
 if __name__=="__main__":
-    app.run(host='0.0.0.0' , port=5000)  # Flask app will run on port 5000 by default, but CICD deployment may use 8080 port.
+    app.run(host='0.0.0.0' , port=8080)  # Flask app will run on port 5000 by default, but CICD deployment may use 8080 port.
