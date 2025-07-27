@@ -15,3 +15,5 @@ src/data_ingestion.py
 src/data_preprocessing.py
 src/logger.py
 src/model_training.py
+utils/__init__.py
+utils/common_functions.py
