@@ -4,7 +4,7 @@ pipeline {
     environment {
         VENV_DIR = 'venv'
         GCP_PROJECT = "vocal-tracker-466814-q0"
-        GCLOUD PATH = "/var/jenkins_home/google-cloud-sdk/bin"
+        GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
     }
 
     stages {
