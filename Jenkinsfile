@@ -39,18 +39,21 @@ pipeline {
         }
 
         stage('Building and Pushing Docker Image to GCR'){
-            steps{
-                withCredentials([file(credentialsId: 'gcp-key' , variable : 'GOOGLE_APPLICATION_CREDENTIALS')]){
-                    script{
+            steps {
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                    script {
                         echo 'Building and Pushing Docker Image to GCR.............'
                         sh '''
-                        export PATH=$PATH:${GCLOUD_PATH}
-                        gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
-                        gcloud config set project ${GCP_PROJECT}
-                        gcloud auth configure-docker --quiet
-                        docker build -t gcr.io/${GCP_PROJECT}/ds-mlops-project:latest .
-                        docker push gcr.io/${GCP_PROJECT}/ds-mlops-project:latest 
+                            export PATH=$PATH:${GCLOUD_PATH}
+                            gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+                            gcloud config set project ${GCP_PROJECT}
+                            gcloud auth configure-docker --quiet
 
+                            cp $GOOGLE_APPLICATION_CREDENTIALS ./gcp-key.json
+                            docker build --build-arg GCP_CREDS=gcp-key.json -t gcr.io/${GCP_PROJECT}/ds-mlops-project:latest .
+                            rm gcp-key.json
+
+                            docker push gcr.io/${GCP_PROJECT}/ds-mlops-project:latest
                         '''
                     }
                 }

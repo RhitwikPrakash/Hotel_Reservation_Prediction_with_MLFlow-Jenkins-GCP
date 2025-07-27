@@ -1,8 +1,7 @@
-# Dockerfile helps to dockerize the whole project, Jenkinsfile ( a dockerfile) is used to build Jenkins container
 FROM python:slim
 
-ENV PYTHONDONTWRITEBYTECODE = 1 \
-    PYTHONUNBUFFERED = 1
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
@@ -10,6 +9,12 @@ RUN apt-get update && apt-get install --no-install-recommends \
     libgomp1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# --- Added for passing GCP credentials ---
+ARG GCP_CREDS
+COPY ${GCP_CREDS} /app/gcp-key.json
+ENV GOOGLE_APPLICATION_CREDENTIALS="/app/gcp-key.json"
+# -----------------------------------------
 
 COPY . .
 
