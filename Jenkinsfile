@@ -7,10 +7,10 @@ pipeline{
         GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
     }
     stages{
-        stage("Cloning Github Repository to Jenkins"){
+        stage('Cloning Github Repository to Jenkins'){
             steps{
                 script{
-                    echo "Cloning the repository from GitHub to Jenkins...."
+                    echo 'Cloning Github Repository to Jenkins....'
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/RhitwikPrakash/Hotel_Reservation_Prediction_with_MLFlow-Jenkins-GCP.git']])
                 }
             }
