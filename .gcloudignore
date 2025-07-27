@@ -1,0 +1,16 @@
+# Ignore large or unnecessary files and folders
+__pycache__/
+*.pyc
+*.pkl
+*.csv
+.ipynb_checkpoints/
+notebook/
+artifacts/
+venv/
+*.zip
+*.tar.gz
+.DS_Store
+.idea/
+logs/
+tests/
+mlruns/

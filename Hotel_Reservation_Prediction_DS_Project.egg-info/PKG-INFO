@@ -12,6 +12,7 @@ Requires-Dist: imbalanced-learn
 Requires-Dist: lightgbm
 Requires-Dist: mlflow
 Requires-Dist: flask
+Requires-Dist: streamlit
 Dynamic: author
 Dynamic: requires-dist
 Dynamic: summary
