@@ -5,6 +5,7 @@ pipeline {
         VENV_DIR = 'venv'
         GCP_PROJECT = "vocal-tracker-466814-q0"
         GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
+        //GOOGLE_APPLICATION_CREDENTIALS = 'vocal-tracker-466814-q0-7b2c4d1908f5.json'
     }
 
     stages {
@@ -40,7 +41,7 @@ pipeline {
 
         stage('Building and Pushing Docker Image to GCR'){
             steps{
-                withCredentials([file(credentialsId: 'gcp-key' , variable : 'GOOGLE_APPLICATION_CREDENTIALS')]){
+                withCredentials([file(credentialsId: 'gcp-key' , variable : 'vocal-tracker-466814-q0-7b2c4d1908f5.json')]){
                     script{
                         echo 'Building and Pushing Docker Image to GCR.............'
                         sh '''
