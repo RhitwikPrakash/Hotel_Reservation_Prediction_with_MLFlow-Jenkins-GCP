@@ -39,4 +39,4 @@ import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))  # this is what Cloud Run waits for, Flask app will run on port 5000 by default, CICD deployment may use 8080 port.
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True, host="0.0.0.0", port=port)
